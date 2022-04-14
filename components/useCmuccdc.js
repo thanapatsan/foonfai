@@ -1,7 +1,7 @@
 import useSWR from "swr";
 
 const fetcher = url => fetch(url).then(res => res.json())
-const baseUrl = "https://www-old.cmuccdc.org//api2/dustboy/ranking/1/45?v=1"
+const baseUrl = "https://www-old.cmuccdc.org/api2/dustboy/ranking/1/45?v=1"
 
 
 const useCmuccdc = () => {

@@ -1,0 +1,65 @@
+@tailwind base;
+html {
+  font-size: 16px;
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+@tailwind components;
+
+.aqi-bg-blue {
+  @apply bg-blue-400;
+}
+.aqi-bg-green {
+  @apply bg-green-500;
+}
+.aqi-bg-yellow {
+  @apply bg-yellow-300;
+}
+.aqi-bg-orange {
+  @apply bg-orange-400;
+}
+.aqi-bg-red {
+  @apply bg-red-600;
+  @apply text-gray-50;
+}
+.aqi-bg-purple{
+  @apply bg-purple-500;
+}
+.aqi-bg-brown{
+  @apply bg-red-800;
+  @apply text-gray-50;
+}
+.aqi-bg-gray{
+  @apply bg-gray-300;
+}
+
+.aqi-border-blue {
+  @apply border-blue-400;
+}
+.aqi-border-green {
+  @apply border-green-500;
+}
+.aqi-border-yellow {
+  @apply border-yellow-300;
+}
+.aqi-border-orange {
+  @apply border-orange-500;
+}
+.aqi-border-red {
+  @apply border-red-500;
+}
+.aqi-border-purple{
+  @apply border-purple-500;
+}
+.aqi-border-brown{
+  @apply border-red-800;
+}
+.aqi-border-gray{
+  @apply border-gray-300;
+}
+
+
+@tailwind utilities;
