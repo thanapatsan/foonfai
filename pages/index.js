@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import AllCmuccdcSmall from "../components/AllCmuccdcSmall";
 import AllYakkawSmall from "../components/AllYakkawSmall";
 
@@ -12,19 +13,25 @@ export default function Home() {
       </Head>
 
       <main className="container">
-        <section className="">
-          <h1>Yakkaw</h1>
-          <p>
-            ข้อมูลเฉลี่ย 6 ชั่วโมงต่อเนื่อง แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
-            <span>
-              μg/m<sup>3</sup>
-            </span>
-          </p>
+        <section className="py-8 ">
+          <div className="bg-gray-100">
+            <h2 className="text-3xl">Yakkaw</h2>
+            <p className="py-1">
+              ข้อมูลเฉลี่ย 6 ชั่วโมงต่อเนื่อง แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
+              <span>
+                μg/m<sup>3</sup>
+              </span>
+            </p>
+            <Link href={"/yakkaw"}>
+              <a>ดูเพิ่มเติม</a>
+            </Link>
+          </div>
+
           <AllYakkawSmall />
         </section>
-        <section>
-          <h1>CMU CCDC</h1>
-          <p>
+        <section className="py-8">
+          <h2 className="text-3xl">CMU CCDC</h2>
+          <p className="py-1">
             ข้อมูลรายชั่วโมง แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
             <span>
               μg/m<sup>3</sup>
