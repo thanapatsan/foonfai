@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Yakkaw from "./yakkaw";
-import Cmuccdc from "./cmuccdc";
+import AllCmuccdcSmall from "../components/AllCmuccdcSmall";
+import AllYakkawSmall from "../components/AllYakkawSmall";
 
 export default function Home() {
   return (
@@ -13,10 +13,10 @@ export default function Home() {
 
       <main className="container">
         <section>
-          <Yakkaw />
+          <AllYakkawSmall />
         </section>
         <section>
-          <Cmuccdc />
+        <AllCmuccdcSmall/>
         </section>
       </main>
     </div>
