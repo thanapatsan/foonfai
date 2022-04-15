@@ -12,11 +12,25 @@ export default function Home() {
       </Head>
 
       <main className="container">
-        <section>
+        <section className="">
+          <h1>Yakkaw</h1>
+          <p>
+            ข้อมูลเฉลี่ย 6 ชั่วโมงต่อเนื่อง แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
+            <span>
+              μg/m<sup>3</sup>
+            </span>
+          </p>
           <AllYakkawSmall />
         </section>
         <section>
-        <AllCmuccdcSmall/>
+          <h1>CMU CCDC</h1>
+          <p>
+            ข้อมูลรายชั่วโมง แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
+            <span>
+              μg/m<sup>3</sup>
+            </span>
+          </p>
+          <AllCmuccdcSmall />
         </section>
       </main>
     </div>

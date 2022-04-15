@@ -24,7 +24,7 @@ const AllYakkawSmall = () => {
 
   return (
     <>
-      <div className="mt-2 grid gap-1 lg:gap-2 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-2 grid gap-1 lg:gap-2 grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {freshnodes &&
           freshnodes.map((station) => (
             <YakkawSmallWidget station={station} key={station.dvid} />

@@ -10,7 +10,7 @@ const AllCmuccdcSmall = () => {
 
   return (
     <>
-      <div className="mt-2 grid gap-1 lg:gap-2 grid-flow-row grid-cols-1 lg:grid-cols-3">
+      <div className="mt-2 grid gap-1 lg:gap-2 grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {rawdata && rawdata.map((station) => <CmuccdcSmallWidget key={station.id} station={station}/>)}
       </div>
     </>

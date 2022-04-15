@@ -41,7 +41,7 @@ export const CommonValueBox = ({ pm25 }) => {
     <>
       <div
         className={
-          "flex flex-col justify-center text-center w-1/3 " +
+          "flex flex-col justify-center text-center w-1/3 rounded-r-md " +
           `aqi-bg-${getUSAQIColorCode(calculateUSAQI_pm25(pm25))}`
         }
       >
@@ -59,7 +59,7 @@ export const CommonValueBoxSmall = ({ pm25 }) => {
     <>
       <div
         className={
-          "flex flex-col justify-center text-center w-1/6 " +
+          "flex flex-col justify-center text-center w-1/6 rounded-r-md " +
           `aqi-bg-${getUSAQIColorCode(calculateUSAQI_pm25(pm25))}`
         }
       >
