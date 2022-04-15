@@ -28,7 +28,7 @@ export const CommonDataBoxSmall = ({ place, address, id }) => {
     <div className="flex-1">
       <div className="m-2">
         <h1 className="text-base font-medium">
-          {place} <span className="text-xs text-gray-500">{`(${id})`}</span>
+          {place}
         </h1>
         <h2 className="text-sm">{address}</h2>
       </div>

@@ -14,10 +14,10 @@ export default function Home() {
 
       <main className="container">
         <section className="py-8 ">
-          <div className="bg-gray-100">
+          <div className="">
             <h2 className="text-3xl">Yakkaw</h2>
             <p className="py-1">
-              ข้อมูลเฉลี่ย 6 ชั่วโมงต่อเนื่อง แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
+              ข้อมูลเฉลี่ย 6 ชั่วโมงต่อเนื่อง <wbr/>แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
               <span>
                 μg/m<sup>3</sup>
               </span>
@@ -30,13 +30,18 @@ export default function Home() {
           <AllYakkawSmall />
         </section>
         <section className="py-8">
-          <h2 className="text-3xl">CMU CCDC</h2>
-          <p className="py-1">
-            ข้อมูลรายชั่วโมง แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
-            <span>
-              μg/m<sup>3</sup>
-            </span>
-          </p>
+          <div>
+            <h2 className="text-3xl">CMU CCDC</h2>
+            <p className="py-1">
+              ข้อมูลรายชั่วโมง <wbr/>แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
+              <span>
+                μg/m<sup>3</sup>
+              </span>
+            </p>{" "}
+            <Link href={"/cmuccdc"}>
+              <a>ดูเพิ่มเติม</a>
+            </Link>
+          </div>
           <AllCmuccdcSmall />
         </section>
       </main>
