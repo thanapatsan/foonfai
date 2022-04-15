@@ -7,8 +7,10 @@ const YakkawSmallWidget = ({ station }) => {
       <div className="flex flex-row max-w-full border border-gray-400 rounded-md">
         <CommonDataBoxSmall
           place={station.place}
+          address={station.address}
           date={station.ddate}
           time={station.dtime}
+          id={station.dvid}
         />
         <CommonValueBoxSmall pm25={station.av6h} />
       </div>
