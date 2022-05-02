@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import AllCmuccdcSmall from "../components/AllCmuccdcSmall";
 import AllYakkawSmall from "../components/AllYakkawSmall";
+import LocationHandler from "../components/LocationHandler";
 
 export default function Home() {
   return (
@@ -13,6 +14,10 @@ export default function Home() {
       </Head>
 
       <main className="container px-2 xl:px-0">
+        <section className="mt-4 mb-8 ">
+          <LocationHandler />
+        </section>
+
         <section className="mt-4 mb-8 ">
           <div className="my-4">
             <h2 className="text-3xl">Yakkaw</h2>
