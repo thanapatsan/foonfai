@@ -1,12 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const LocationHandler = () => {
-  const [locGetterState, setLocGetterState] = useState("");
+  const [alertText, setAlertText] = useState("");
+
   const [gettingLocationState, setGettingLocationState] = useState(false);
+
+  const [hasUserLocation, setHasUserLocation] = useState(false);
+
+  const LOCALETEXT = {
+    th: {
+      responses: {
+        pulling:`กำลังดึงตำแหน่ง...`,
+        denied: `ผู้ใช้ไม่อนุญาติให้ดึงตำแหน่ง`,
+        success: `ดึงตำแหน่งสำเร็จ`,
+        cleared: `ล้างตำแหน่งสำเร็จ`,
+      },
+      button: {
+        clear: `ล้างตำแหน่ง`,
+        pulling: `กำลังดึงตำแหน่ง`,
+        available: `ดึงตำแหน่ง`,
+      },
+    },
+  };
+
+  useEffect(() => {
+    if (hasLocation()) {
+      console.log(`have user location`);
+      setHasUserLocation(true);
+    }
+  }, []);
+
+  function displayAlertText(text){
+    setAlertText(text)
+    setTimeout(() => {
+      setAlertText("")
+    }, 5000);
+  }
+
+  function hasLocation() {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("lat") && localStorage.getItem("lon");
+    }
+  }
 
   function getUserLocation() {
     if (navigator.geolocation) {
-      setLocGetterState("getting location");
       setGettingLocationState(true);
       navigator.geolocation.getCurrentPosition(
         setUserLocation,
@@ -24,8 +62,10 @@ const LocationHandler = () => {
       console.log(`successfully save user location`);
     }
 
-    setLocGetterState("got location, refresh page to take effect");
+    displayAlertText(LOCALETEXT.th.responses.success);
     setGettingLocationState(false);
+    setHasUserLocation(true);
+
   }
 
   function clearUserLocation() {
@@ -34,13 +74,15 @@ const LocationHandler = () => {
       localStorage.removeItem("lon");
       console.log(`successfully remove user location`);
     }
-    setLocGetterState("location cleared, refresh page to take effect");
+    displayAlertText(LOCALETEXT.th.responses.cleared);
+    setHasUserLocation(false);
+
   }
 
   function locationErrorHandler(error) {
     switch (error.code) {
       case 1:
-        setLocGetterState(`ผู้ใช้ไม่อนุญาติให้ดึงตำแหน่ง`);
+        displayAlertText(LOCALETEXT.th.responses.denied);
         setGettingLocationState(false);
         break;
       default:
@@ -50,41 +92,27 @@ const LocationHandler = () => {
     }
   }
 
-  function hasLocation() {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("lat") && localStorage.getItem("lon");
-    }
-  }
-
-  function gettingLocation() {
-    return gettingLocationState;
-  }
-
   return (
     <div>
-      {hasLocation() ? (
+      {hasUserLocation ? (
         <button
           className="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded"
           onClick={clearUserLocation}
         >
-          ล้างตำแหน่งปัจจุบัน
-        </button>
-      ) : gettingLocation() ? (
-        <button
-          className="bg-blue-500 text-white py-2 px-4 rounded"
-          onClick={getUserLocation}
-        >
-          กำลังดึงตำแหน่งปัจจุบัน
+          {LOCALETEXT.th.button.clear}
         </button>
       ) : (
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
           onClick={getUserLocation}
+          disabled={gettingLocationState}
         >
-          ดึงตำแหน่งปัจจุบัน
+          {gettingLocationState
+            ? LOCALETEXT.th.button.pulling
+            : LOCALETEXT.th.button.available}
         </button>
       )}
-      <span>{locGetterState}</span>
+      <span>{alertText}</span>
     </div>
   );
 };
