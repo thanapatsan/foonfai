@@ -5,7 +5,14 @@ const baseUrl = "https://yakkaw.mfu.ac.th/api/yakkaw/devices";
 
 const useYakkaw = () => {
   const { data, error } = useSWR(baseUrl, fetcher);
-  console.log(`fetched new data from yakkaw at ${new Date().toUTCString()}`);
+  if (error) {
+    console.log(`[!] error fetching yakkaw:\n`, error);
+  }
+  if (data) {
+    console.log(
+      `[.] fetched new data from yakkaw at ${new Date().toUTCString()}`
+    );
+  }
   return {
     isLoading: !error && !data,
     isError: error,
