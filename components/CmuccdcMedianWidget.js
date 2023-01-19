@@ -1,20 +1,23 @@
 import useCmuccdc from "./useCmuccdc";
-import { calculateMedian } from "./helpers";
+import {
+  calculateMedian,
+  calculateUSAQI_pm25,
+  getUSAQIColorCode,
+} from "./helpers";
 
 const CmuccdcMedianWidget = () => {
   const { data, isError, isLoading } = useCmuccdc();
 
-  if (isLoading) return <>กำลังโหลดข้อมูลจาก CMU CCDC</>;
+  if (isLoading)
+    return (
+      <>
+        <span>...</span>
+      </>
+    );
   if (isError)
     return (
       <>
-        <p>ไม่สามารถดึงข้อมูลได้</p>
-        <a
-          href="https://www.cmuccdc.org/"
-          className="text-blue-700 hover:text-blue-500"
-        >
-          <p>สามารถเช็คสภาพอากาศโดยตรงได้ที่ CMU CCDC</p>
-        </a>
+        <span>???</span>
       </>
     );
 
@@ -25,10 +28,20 @@ const CmuccdcMedianWidget = () => {
   rawdata.forEach((element) => {
     allDustValue.push(element.pm25);
   });
+  let median = calculateMedian(allDustValue);
 
-  return <>
-  <span>{calculateMedian(allDustValue)}</span>
-  </>;
+  return (
+    <>
+      <span
+        className={
+          "p-1 rounded-md " +
+          `aqi-bg-${getUSAQIColorCode(calculateUSAQI_pm25(median))}`
+        }
+      >
+        {median}
+      </span>{" "}
+    </>
+  );
 };
 
 export default CmuccdcMedianWidget;

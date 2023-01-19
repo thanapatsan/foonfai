@@ -10,6 +10,7 @@ const AllCmuccdcSmall = () => {
         <p>ไม่สามารถดึงข้อมูลได้</p>
         <a
           href="https://www.cmuccdc.org/"
+          rel="noreferrer"
           className="text-blue-700 hover:text-blue-500"
         >
           <p>สามารถเช็คสภาพอากาศโดยตรงได้ที่ CMU CCDC</p>

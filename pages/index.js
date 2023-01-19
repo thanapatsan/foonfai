@@ -4,6 +4,7 @@ import AllCmuccdcSmall from "../components/AllCmuccdcSmall";
 import AllYakkawSmall from "../components/AllYakkawSmall";
 import CmuccdcMedianWidget from "../components/CmuccdcMedianWidget";
 
+import YakkawMedianWidget from "../components/YakkawMedianWidget";
 export default function Home() {
   return (
     <>
@@ -24,6 +25,10 @@ export default function Home() {
                 μg/m<sup>3</sup>
               </span>
             </p>
+            <div>
+              ค่ามัธยฐานชั่วโมงที่แล้ว: <YakkawMedianWidget />
+            </div>
+
             <Link href={"/yakkaw"}>
               <a className="text-blue-700 hover:text-blue-500">ดูเพิ่มเติม</a>
             </Link>
@@ -31,7 +36,7 @@ export default function Home() {
 
           <AllYakkawSmall />
         </section>
-        
+
         <section className="mt-4 mb-8">
           <div className="my-4">
             <h2 className="text-3xl">CMU CCDC</h2>
@@ -42,7 +47,9 @@ export default function Home() {
                 μg/m<sup>3</sup>
               </span>
             </p>
-            <div>ค่ามัธยฐาน: <CmuccdcMedianWidget/></div>
+            <div>
+              ค่ามัธยฐานชั่วโมงที่แล้ว: <CmuccdcMedianWidget />
+            </div>
 
             <Link href={"/cmuccdc"}>
               <a className="text-blue-700 hover:text-blue-500">ดูเพิ่มเติม</a>
@@ -50,7 +57,6 @@ export default function Home() {
           </div>
           <AllCmuccdcSmall />
         </section>
-        
       </main>
     </>
   );

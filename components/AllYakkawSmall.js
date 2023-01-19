@@ -11,6 +11,7 @@ const AllYakkawSmall = () => {
         <p>ไม่สามารถดึงข้อมูลได้</p>
         <a
           href="https://yakkaw.mfu.ac.th/"
+          rel="noreferrer"
           className="text-blue-700 hover:text-blue-500"
         >
           <p>สามารถเช็คสภาพอากาศโดยตรงได้ที่ Yakkaw</p>
