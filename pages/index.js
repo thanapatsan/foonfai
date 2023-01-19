@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import AllCmuccdcSmall from "../components/AllCmuccdcSmall";
 import AllYakkawSmall from "../components/AllYakkawSmall";
+import CmuccdcMedianWidget from "../components/CmuccdcMedianWidget";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
 
           <AllYakkawSmall />
         </section>
+        
         <section className="mt-4 mb-8">
           <div className="my-4">
             <h2 className="text-3xl">CMU CCDC</h2>
@@ -40,12 +42,15 @@ export default function Home() {
                 μg/m<sup>3</sup>
               </span>
             </p>
+            <div>ค่ามัธยฐาน: <CmuccdcMedianWidget/></div>
+
             <Link href={"/cmuccdc"}>
               <a className="text-blue-700 hover:text-blue-500">ดูเพิ่มเติม</a>
             </Link>
           </div>
           <AllCmuccdcSmall />
         </section>
+        
       </main>
     </>
   );

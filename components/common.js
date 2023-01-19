@@ -27,9 +27,7 @@ export const CommonDataBoxSmall = ({ place, address, id }) => {
   return (
     <div className="flex-1">
       <div className="m-2">
-        <h1 className="text-base font-medium">
-          {place}
-        </h1>
+        <h1 className="text-base font-medium">{place}</h1>
         <h2 className="text-sm">{address}</h2>
       </div>
     </div>
@@ -76,3 +74,5 @@ export const CommonDataWatermark = ({ name, id }) => {
     </div>
   );
 };
+
+
