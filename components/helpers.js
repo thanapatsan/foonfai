@@ -248,5 +248,5 @@ export const calculateMedian = (numbers) => {
     return (sorted[middle - 1] + sorted[middle]) / 2;
   }
 
-  return sorted[middle];
+  return Math.floor(sorted[middle]);
 };

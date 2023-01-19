@@ -19,12 +19,13 @@ const AllCmuccdcSmall = () => {
     );
 
   let rawdata = data.stations;
+  let finalNodes = rawdata.sort((a, b) => b.pm25 - a.pm25);
 
   return (
     <>
       <div className="mt-2 grid gap-1 lg:gap-2 grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        {rawdata &&
-          rawdata.map((station) => (
+        {finalNodes &&
+          finalNodes.map((station) => (
             <CmuccdcSmallWidget key={station.id} station={station} />
           ))}
       </div>

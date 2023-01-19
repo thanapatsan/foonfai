@@ -43,7 +43,6 @@ const YakkawMedianWidget = () => {
   let allDustValue = [];
 
   freshnodes.forEach((element) => {
-    // console.log(element.av1h)
     allDustValue.push(element.av1h);
   });
 

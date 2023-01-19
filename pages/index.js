@@ -23,7 +23,8 @@ export default function Home() {
               แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
               <span>
                 μg/m<sup>3</sup>
-              </span>
+              </span>{" "}
+              เรียงจากมากไปน้อย
             </p>
             <div>
               ค่ามัธยฐานชั่วโมงที่แล้ว: <YakkawMedianWidget />
@@ -45,7 +46,8 @@ export default function Home() {
               แสดงตัวเลขค่าฝุ่น PM2.5 หน่วย{" "}
               <span>
                 μg/m<sup>3</sup>
-              </span>
+              </span>{" "}
+              เรียงจากมากไปน้อย
             </p>
             <div>
               ค่ามัธยฐานชั่วโมงที่แล้ว: <CmuccdcMedianWidget />
