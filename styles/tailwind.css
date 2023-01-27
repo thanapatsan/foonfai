@@ -26,10 +26,11 @@ body {
   @apply text-gray-50;
 }
 .aqi-bg-purple{
-  @apply bg-purple-500;
+  @apply bg-purple-600;
+  @apply text-gray-50;
 }
 .aqi-bg-brown{
-  @apply bg-red-800;
+  @apply bg-orange-900;
   @apply text-gray-50;
 }
 .aqi-bg-gray{
@@ -55,7 +56,7 @@ body {
   @apply border-purple-500;
 }
 .aqi-border-brown{
-  @apply border-red-800;
+  @apply border-orange-900;
 }
 .aqi-border-gray{
   @apply border-gray-300;
