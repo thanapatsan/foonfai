@@ -9,26 +9,40 @@ export const CommonDataBox = ({
   temperature,
   humidity,
 }) => {
+  let timeString = timestamp ? `${timestamp}` : `${date} ${time}`;
+  const timeFormatted = new Intl.DateTimeFormat("th", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  }).format(new Date(timeString));
+
   return (
     <div className="flex-1">
       <div className="m-2">
         <h1 className="text-xl font-medium my-1">{place}</h1>
         <h2 className="text-base my-1">{address}</h2>
-        <h3 className="text-sm">
-          {timestamp ? `📅 ${timestamp}` : `📅 ${date} ${time}`}
-        </h3>
-        <h4 className="text-sm">{`🌡️: ${temperature}℃ 💧:${humidity}%`}</h4>
+        <h3 className="text-sm">{`📅 ${timeFormatted}`}</h3>
+        {(temperature == null && humidity == null) ||
+        (temperature === "0.00" && humidity === "0.00") ? (
+          <></>
+        ) : (
+          <h4 className="text-sm">{`🌡️: ${Math.round(
+            temperature
+          )}℃ 💧:${Math.round(humidity)}%`}</h4>
+        )}
       </div>
     </div>
   );
 };
 
-export const CommonDataBoxSmall = ({ place, address, id }) => {
+export const CommonDataBoxSmall = ({ place, address }) => {
   return (
     <div className="flex-1">
       <div className="m-2">
         <h1 className="text-base font-medium">{place}</h1>
-        <h2 className="text-sm">{address}</h2>
+        {address && <h2 className="text-sm">{address}</h2>}
       </div>
     </div>
   );
@@ -74,5 +88,3 @@ export const CommonDataWatermark = ({ name, id }) => {
     </div>
   );
 };
-
-

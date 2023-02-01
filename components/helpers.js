@@ -122,6 +122,7 @@ export const calculateUSAQI_pm25 = (value) => {
   let result = ((iHigh - iLow) / (cHigh - cLow)) * (value - cLow) + iLow;
   return Math.floor(result);
 };
+
 export const calculateUSAQI_pm100 = (value) => {
   let cHigh;
   let cLow;
@@ -168,6 +169,7 @@ export const calculateUSAQI_pm100 = (value) => {
   let result = ((iHigh - iLow) / (cHigh - cLow)) * (value - cLow) + iLow;
   return Math.floor(result);
 };
+
 export const getUSAQIColorCode = (value) => {
   if (value > 0 && value <= 50) {
     return "green";
@@ -245,8 +247,58 @@ export const calculateMedian = (numbers) => {
   const middle = Math.floor(sorted.length / 2);
 
   if (sorted.length % 2 === 0) {
-    return (sorted[middle - 1] + sorted[middle]) / 2;
+    return Math.floor((sorted[middle - 1] + sorted[middle]) / 2);
   }
 
-  return Math.floor(sorted[middle]);
+  return sorted[middle];
+};
+
+export const splitLocationName = (location) => {
+  // regex for split the subdist/dist/prov name, split notes in parentheses
+  let regex_subdistrict = /\s(ต\s?\..+)/;
+  let regex_district = /\s(อ\s?\..+)/;
+  let regex_province = /\s(จ\s?\..+)/;
+  let regex_parentheses = /\s?(\([^\)]+\))/;
+
+  // if want to capture just the name, use below
+  // let regex_subdistrict = new RegExp("\\sต\\s?\\.(\\S+)");
+  // let regex_district = new RegExp("\\sอ\\s?\\.(\\S+)");
+  // let regex_province = new RegExp("\\sจ\\s?\\.(\\S+)");
+
+  let obj = {
+    name: location,
+    address: "",
+    note: "",
+  };
+
+  if (regex_parentheses.test(location)) {
+    let splitName = location.split(regex_parentheses, 2);
+    obj.note = splitName[1];
+    location = splitName[0];
+  }
+
+  if (regex_subdistrict.test(location)) {
+    let splitName = location.split(regex_subdistrict, 2);
+    obj.name = splitName[0];
+    obj.address = splitName[1];
+    return obj;
+  }
+
+  if (regex_district.test(location)) {
+    let splitName = location.split(regex_district, 2);
+    obj.name = splitName[0];
+    obj.address = splitName[1];
+    return obj;
+  }
+
+  // override the address to note since just province is too short
+  if (regex_province.test(location)) {
+    let splitName = location.split(regex_province, 2);
+    obj.name = splitName[0];
+    obj.note = splitName[1];
+    return obj;
+  }
+
+  // if all else failed, just return the name of location
+  return obj;
 };

@@ -13,7 +13,7 @@ const CmuccdcFullWidget = ({ station }) => {
             temperature={station.temp}
             humidity={station.humid}
           />
-          <CommonDataWatermark name={"cmuccdc.org"} id={station.id} />
+          <CommonDataWatermark name={"cmuccdc.org"} id={station.dustboy_uri} />
         </div>
 
         <CommonValueBox pm25={station.pm25} />

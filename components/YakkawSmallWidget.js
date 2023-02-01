@@ -10,7 +10,6 @@ const YakkawSmallWidget = ({ station }) => {
           address={station.address}
           date={station.ddate}
           time={station.dtime}
-          id={station.dvid}
         />
         <CommonValueBoxSmall pm25={station.av6h} />
       </div>

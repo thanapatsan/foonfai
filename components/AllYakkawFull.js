@@ -32,6 +32,8 @@ const AllYakkawFull = () => {
     }
     return fresh;
   });
+  let finalNodes = freshnodes.sort((a, b) => b.av6h - a.av6h);
+
 
   return (
     <>

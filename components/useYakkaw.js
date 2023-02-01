@@ -2,6 +2,7 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 const baseUrl = "https://yakkaw.mfu.ac.th/api/yakkaw/devices";
+// const baseUrl = "/api/data_yakkaw";
 
 const useYakkaw = () => {
   const { data, error } = useSWR(baseUrl, fetcher);

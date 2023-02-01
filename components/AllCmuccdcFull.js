@@ -18,6 +18,8 @@ const AllCmuccdcFull = () => {
     );
 
   let rawdata = data.stations;
+  let finalNodes = rawdata.sort((a, b) => b.pm25 - a.pm25);
+
 
   return (
     <>

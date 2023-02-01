@@ -3,8 +3,8 @@ import Link from "next/link";
 import AllCmuccdcSmall from "../components/AllCmuccdcSmall";
 import AllYakkawSmall from "../components/AllYakkawSmall";
 import CmuccdcMedianWidget from "../components/CmuccdcMedianWidget";
-
 import YakkawMedianWidget from "../components/YakkawMedianWidget";
+
 export default function Home() {
   return (
     <>
