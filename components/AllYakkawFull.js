@@ -32,14 +32,14 @@ const AllYakkawFull = () => {
     }
     return fresh;
   });
-  let finalNodes = freshnodes.sort((a, b) => b.av6h - a.av6h);
+  let finalNodes = freshnodes.sort((a, b) => b.pm25 - a.pm25);
 
 
   return (
     <>
       <div className="mt-2 grid gap-1 lg:gap-2 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {freshnodes &&
-          freshnodes.map((station) => (
+        {finalNodes &&
+          finalNodes.map((station) => (
             <YakkawFullWidget station={station} key={station.dvid} />
           ))}
       </div>
