@@ -3,7 +3,7 @@ export const calculateTHAQI_pm25 = (value) => {
   let cLow;
   let iHigh;
   let iLow;
-  if (value > 0 && value <= 25) {
+  if (value >= 0 && value <= 25) {
     iLow = 0;
     iHigh = 25;
     cLow = 0;
@@ -35,7 +35,7 @@ export const calculateTHAQI_pm100 = (value) => {
   let cLow;
   let iHigh;
   let iLow;
-  if (value > 0 && value <= 50) {
+  if (value >= 0 && value <= 50) {
     iLow = 0;
     iHigh = 25;
     cLow = 0;
@@ -181,7 +181,7 @@ export const getUSAQIColorCode = (value) => {
     return "red";
   } else if (value >= 201 && value <= 300) {
     return "purple";
-  } else if (value > 301) {
+  } else if (value >= 301) {
     return "brown";
   } else return "gray";
 };

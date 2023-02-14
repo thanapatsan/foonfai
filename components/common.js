@@ -1,4 +1,9 @@
-import { calculateUSAQI_pm25, getUSAQIColorCode } from "./helpers";
+import {
+  calculateUSAQI_pm25,
+  getUSAQIColorCode,
+  calculateTHAQI_pm25,
+  getTHAQIColorCode,
+} from "./helpers";
 
 export const CommonDataBox = ({
   place,
@@ -10,6 +15,8 @@ export const CommonDataBox = ({
   humidity,
 }) => {
   let timeString = timestamp ? `${timestamp}` : `${date} ${time}`;
+
+  // const timeFormatted = "";
   const timeFormatted = new Intl.DateTimeFormat("th", {
     year: "numeric",
     month: "numeric",
@@ -67,6 +74,36 @@ export const CommonValueBox = ({ pm25 }) => {
 };
 
 export const CommonValueBoxSmall = ({ pm25 }) => {
+  return (
+    <>
+      <div
+        className={
+          "flex flex-col justify-center text-center w-1/6 rounded-r-md " +
+          `aqi-bg-${getUSAQIColorCode(calculateUSAQI_pm25(pm25))}`
+        }
+      >
+        <p className="text-xl font-bold">{pm25}</p>
+      </div>
+    </>
+  );
+};
+
+export const CommonValueBoxTHSmall = ({ pm25 }) => {
+  return (
+    <>
+      <div
+        className={
+          "flex flex-col justify-center text-center w-1/6 rounded-r-md " +
+          `aqi-bg-${getTHAQIColorCode(calculateTHAQI_pm25(pm25))}`
+        }
+      >
+        <p className="text-xl font-bold">{pm25}</p>
+      </div>
+    </>
+  );
+};
+
+export const CommonValueBoxUSSmall = ({ pm25 }) => {
   return (
     <>
       <div
