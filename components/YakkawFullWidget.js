@@ -1,5 +1,6 @@
-import { calculateUSAQI_pm25, getUSAQIColorCode } from "../components/helpers";
 import { CommonDataBox, CommonDataWatermark, CommonValueBox } from "./common";
+import { calculateUSAQI_pm25, getUSAQIColorCode } from "../components/helpers";
+
 const YakkawHistory = ({ station, hidden = false }) => {
   return (
     <>
@@ -47,6 +48,7 @@ const YakkawFullWidget = ({ station }) => {
           />
           <YakkawHistory station={station} />
           <CommonDataWatermark name={"yakkaw.mfu.ac.th"} id={station.dvid} />
+          <p>PM10: </p>
         </div>
         <CommonValueBox pm25={station.pm25} />
       </div>

@@ -271,11 +271,11 @@ export const splitLocationName = (location) => {
     note: "",
   };
 
-  if (regex_parentheses.test(location)) {
-    let splitName = location.split(regex_parentheses, 2);
-    obj.note = splitName[1];
-    location = splitName[0];
-  }
+  // if (regex_parentheses.test(location)) {
+  //   let splitName = location.split(regex_parentheses, 2);
+  //   obj.note = splitName[1];
+  //   location = splitName[0];
+  // }
 
   if (regex_subdistrict.test(location)) {
     let splitName = location.split(regex_subdistrict, 2);
