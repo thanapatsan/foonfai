@@ -46,3 +46,17 @@ Test files live in `__tests__/`:
 - **Tailwind v4**: Config moved to CSS (`@theme` block). Nesting plugin removed (native in v4).
 - **ESLint v9 / flat config**: Uses `eslint.config.mjs` (not `.eslintrc.json`). `next lint` removed — use `npx eslint .` directly.
 - **Next.js 16**: Uses Turbopack by default. `next lint` CLI removed.
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs live in GitHub Issues for `thanapatsan/foonfai`; use `gh`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the default labels: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, and `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+This is a single-context repo using root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
